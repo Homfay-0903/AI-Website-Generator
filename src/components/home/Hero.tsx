@@ -3,6 +3,7 @@
 import React, { useState } from 'react'
 import { Button } from '../ui/button'
 import { ArrowUp, HomeIcon, ImagePlus, Key, LayoutDashboard, User } from 'lucide-react'
+import { SignInButton } from '@clerk/nextjs'
 
 const suggestions = [
     {
@@ -49,7 +50,10 @@ export default function Hero() {
                 </textarea>
                 <div className='flex justify-between items-center'>
                     <Button variant={'ghost'}><ImagePlus></ImagePlus></Button>
-                    <Button><ArrowUp></ArrowUp></Button>
+
+                    <SignInButton mode='modal' forceRedirectUrl={'/workspace'}>
+                        <Button disabled={!userInput}><ArrowUp></ArrowUp></Button>
+                    </SignInButton>
                 </div>
             </div>
 
