@@ -2,6 +2,7 @@ import { usersTable } from "@/db/schema";
 import { db } from "@/index";
 import { currentUser } from "@clerk/nextjs/server";
 import { NextRequest, NextResponse } from "next/server";
+import { eq } from "drizzle-orm";
 
 export async function POST(req: NextRequest) {
     const curUser = await currentUser()

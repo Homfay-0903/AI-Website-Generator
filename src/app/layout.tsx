@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
 import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
+import { UserInfoProvider } from "@/contexts/UserInfoContext";
 
 const montSerrat = Montserrat({
   weight: "500",
@@ -24,7 +25,9 @@ export default function RootLayout({
         className={montSerrat.className}
       >
         <ClerkProvider>
-          {children}
+          <UserInfoProvider>
+            {children}
+          </UserInfoProvider>
         </ClerkProvider>
       </body>
     </html>

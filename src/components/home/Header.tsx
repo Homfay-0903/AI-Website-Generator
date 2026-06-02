@@ -3,6 +3,7 @@ import React from 'react'
 import { Button } from '../ui/button'
 import { ArrowRight, Ghost } from 'lucide-react'
 import { SignInButton } from '@clerk/nextjs'
+import Link from 'next/link'
 
 const menuOptions = [
     {
@@ -36,7 +37,9 @@ export default function Header() {
             {/*get started */}
             <div>
                 <SignInButton mode='modal' forceRedirectUrl={'/workspace'}>
-                    <Button>Get Started <ArrowRight></ArrowRight></Button>
+                    <Link href={'/workspace'}>
+                        <Button>Get Started <ArrowRight></ArrowRight></Button>
+                    </Link>
                 </SignInButton>
             </div>
         </div>
